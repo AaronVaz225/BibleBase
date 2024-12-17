@@ -4,11 +4,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Bookshelves from "./components/Bookshelves/Bookshelves";
 import Books from "./components/Books/Books";
 import Pages from "./components/Pages/Pages";
-import PageEditor from "./components/PageEditor/PageEditor";
 
 function App() {
   return (
-    <Pages />
+    <div>
+      <Pages />
+      <Books />
+      <Bookshelves />
+    </div>
     // <Router>
     //     <Routes>
     //         <Route path="/" element={<Bookshelves />} />
