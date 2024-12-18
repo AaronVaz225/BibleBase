@@ -1,16 +1,13 @@
 import { useState } from "react";
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Bookshelves from "./components/Bookshelves/Bookshelves";
-import Books from "./components/Books/Books";
-import Pages from "./components/Pages/Pages";
+import LibraryContainer from "./components/LibraryContainer/LibraryContainer";
+import NavBar from "./components/NavBar/NavBar";
 
 function App() {
   return (
     <div>
-      <Pages />
-      <Books />
-      <Bookshelves />
+      <NavBar />
+      <LibraryContainer />
     </div>
     // <Router>
     //     <Routes>

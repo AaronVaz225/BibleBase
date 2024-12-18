@@ -1,4 +1,10 @@
 /*Global Stylesheets */
+* {
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
 html {
   background-color: #f3f2f1;
 }

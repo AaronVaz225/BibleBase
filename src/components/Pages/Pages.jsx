@@ -1,3 +1,5 @@
+//TODO Add Functionality
+
 import React from "react";
 import pagesImage from "../../assets/images/pages.png";
 import "./pagesStyle.css";

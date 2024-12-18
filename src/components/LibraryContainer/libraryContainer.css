@@ -1,0 +1,11 @@
+/*css code for now, will probably have to update when functionality is added */
+
+.library-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 equal-width columns */
+  gap: 20px; /* Spacing between grid items */
+  background-color: #f3f2f1;
+  padding-left: 10vh;
+  padding-right: 10vh;
+  padding-top: 5vh;
+}
