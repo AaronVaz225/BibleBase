@@ -33,5 +33,3 @@ const bookshelfSchema = new mongoose.Schema(
 );
 
 module.exports = mongoose.model("Bookshelf", bookshelfSchema);
-
-module.exports = mongoose.model("Bookshelf", noteSchema);
