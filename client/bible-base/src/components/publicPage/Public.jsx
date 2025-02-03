@@ -7,7 +7,7 @@ const Public = () => {
   const content = (
     <section className="public">
       <header>
-        <h1>Welcome to Bible Base</h1>
+        <h1 className="text-red-500">Welcome to Bible Base</h1>
       </header>
       <main className="public__main">
         <Link to="/login">Login</Link>
@@ -15,7 +15,7 @@ const Public = () => {
         <Link to="/sign-up">Sign Up</Link>
       </main>
       <footer>
-        <p>Footer</p>
+        <p className="text-red-600">Footer</p>
       </footer>
     </section>
   );
