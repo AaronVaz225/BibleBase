@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const Welcome = () => {
   const content = (
-    <section className="welcome">
-      <h1>Library</h1>
+    <section className="welcome ">
+      <h1 className="font-bold text-purple-500">Library</h1>
 
       <p>
         <Link to="/dashboard/bookshelf">Bookshelf</Link>

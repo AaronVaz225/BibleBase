@@ -22,7 +22,7 @@ const Public = () => {
             Login
           </Link>
           <Link
-            to="/sign-up"
+            to="/signup"
             className="block w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 rounded-lg transition duration-200"
           >
             Sign Up
