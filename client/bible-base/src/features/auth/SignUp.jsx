@@ -1,6 +1,6 @@
 //Sign Up Page
 import React from "react";
-//#TODO: import navbar component here
+import Navbar from "../../components/NavBar/Navbar";
 import { useState } from "react";
 import PasswordInput from "../../components/Input/PasswordInput";
 import { Link } from "react-router-dom";
@@ -38,7 +38,7 @@ const SignUp = () => {
 
   return (
     <>
-      {/*#TODO Put Navbar component here*/}
+      <Navbar />
 
       <div className="flex items-center justify-center mt-28">
         <div className="w-96 border rounded bg-white px-7 py-10">
