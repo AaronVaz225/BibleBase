@@ -8,8 +8,10 @@ const corsOptions = {
       callback(new Error("Not allowed by CORS"));
     }
   },
-  credentials: true, //must be set to true if using JWT
-  optionsSuccessStatus: 200, // Default is 204 but some random things like smart TV's have trouble with 204
+  methods: "GET, POST, PUT, DELETE, OPTIONS", // Explicitly allow methods
+  allowedHeaders: "Content-Type, Authorization", // Explicitly allow headers
+  credentials: true, // Must be set to true if using JWT
+  optionsSuccessStatus: 200, // Change to 200 instead of 204 to prevent issues
 };
 
 module.exports = corsOptions;

@@ -5,6 +5,7 @@ import DashboardLayout from "./components/DashboardLayout";
 import Welcome from "./features/auth/Welcome";
 import SignUp from "./features/auth/SignUp";
 import Login from "./features/auth/Login";
+import ProtectedRoute from "./features/auth/ProtectedRoute";
 
 function App() {
   return (
@@ -18,8 +19,10 @@ function App() {
       </Route>
 
       {/*Protected Routes */}
-      <Route path="dashboard" element={<DashboardLayout />}>
-        <Route index element={<Welcome />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="dashboard" element={<DashboardLayout />}>
+          <Route index element={<Welcome />} />
+        </Route>
       </Route>
     </Routes>
   );

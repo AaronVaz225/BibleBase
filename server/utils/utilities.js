@@ -23,3 +23,5 @@ function authenticateToken(req, res, next) {
 module.exports = {
   authenticateToken, // Export the function for use in other files
 };
+
+//Look at axios instance file in client for reminder on how this works

@@ -117,7 +117,7 @@ app.post("/login", async (req, res) => {
   }
 });
 
-//Get User:
+//Get User
 app.get("/get-user", authenticateToken, async (req, res) => {
   const { user } = req.user;
 

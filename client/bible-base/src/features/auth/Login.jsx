@@ -1,6 +1,6 @@
 //Login Page
 import React from "react";
-import Navbar from "../../components/NavBar/Navbar";
+
 import { Link, useNavigate } from "react-router-dom";
 import PasswordInput from "../../components/Input/PasswordInput";
 import { useState } from "react";
@@ -57,8 +57,7 @@ const Login = () => {
 
   return (
     <>
-      <Navbar />
-      <div className="flex items-center justify-center mt-28">
+      <div className="flex items-center justify-center mt-50">
         <div className="w-96 border rounded bg-white px-7 py-10">
           <form onSubmit={handleLogin}>
             <h4 className="text-2xl mb-7">Login</h4>
