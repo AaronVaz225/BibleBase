@@ -5,7 +5,7 @@ function authenticateToken(req, res, next) {
   // Get the Authorization header from the request
   const authHeader = req.headers["authorization"];
 
-  // Extract the token from the header (format: "Bearer <token>")
+  // Extract the token from the header (format: "Bearer <token>") *Splits the string into an array ["Bearer", "<token>"]
   const token = authHeader && authHeader.split(" ")[1];
 
   // If no token is found, return a 401 Unauthorized response
