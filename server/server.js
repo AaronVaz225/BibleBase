@@ -70,9 +70,13 @@ app.post("/create-account", async (req, res) => {
   await user.save(); //saves document into DB
 
   //Issues token for authentication //jwt.sign(payload, secret, options)
-  const accessToken = jwt.sign({ user }, process.env.ACCESS_TOKEN_SECRET, {
-    expiresIn: "3000m", //Expires in 30 minutes
-  });
+  const accessToken = jwt.sign(
+    { userId: user._id }, // changed from {user}
+    process.env.ACCESS_TOKEN_SECRET,
+    {
+      expiresIn: "3000m", //Expires in 30 minutes
+    }
+  );
 
   return res.status(201).json({
     error: false,
@@ -133,10 +137,10 @@ app.post("/login", async (req, res) => {
 
 //Get User
 app.get("/get-user", authenticateToken, async (req, res) => {
-  const { user } = req.user;
+  const userId = req.user.userId; // changed from const {user} = req.user
 
-  const isUser = await User.findOne({ _id: user._id }); //_id b/c thats how mongo automatically stores ID's (so the _id is already in db if user is in there)
-
+  //const isUser = await User.findOne({ _id: user._id }); //_id b/c thats how mongo automatically stores ID's (so the _id is already in db if user is in there)
+  const isUser = await User.findById(userId);
   if (!isUser) {
     return res.sendStatus(401);
   }
