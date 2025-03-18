@@ -188,6 +188,23 @@ app.get("/bookshelves", authenticateToken, async (req, res) => {
   }
 });
 
+// Delete a Bookshelf
+app.delete("/bookshelves/:bookshelfId", authenticateToken, async (req, res) => {
+  try {
+    // Delete the bookshelf
+    const shelf = await Bookshelf.findByIdAndDelete(req.params.bookshelfId);
+    if (!shelf) return res.status(404).json({ message: "Bookshelf not found" });
+
+    // Optionally, delete all books and pages associated with this bookshelf
+    await Book.deleteMany({ bookshelfId: req.params.bookshelfId });
+    await Page.deleteMany({ bookshelfId: req.params.bookshelfId });
+
+    res.json({ message: "Bookshelf deleted successfully" });
+  } catch (err) {
+    res.status(500).json({ message: "Server error", error: err.message });
+  }
+});
+
 //Create a book inside a bookshelf
 app.post("/books", authenticateToken, async (req, res) => {
   const { name, bookshelfId } = req.body;
@@ -262,11 +279,9 @@ app.post("/pages", authenticateToken, async (req, res) => {
   const { title, content, bookId, bookshelfId } = req.body;
 
   if (!title || (!bookId && !bookshelfId)) {
-    return res
-      .status(400)
-      .json({
-        message: "Title and either Book ID or Bookshelf ID are required",
-      });
+    return res.status(400).json({
+      message: "Title and either Book ID or Bookshelf ID are required",
+    });
   }
 
   try {
