@@ -1,28 +1,16 @@
-//Uds
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const pageSchema = new mongoose.Schema(
-  {
-    title: {
-      type: String,
-      required: true,
-    },
-    content: {
-      type: String,
-      default: "", // Text content of the page
-    },
-    bookshelf: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Bookshelf",
-      required: true,
-    }, // Reference to the bookshelf or book this page belongs to
-    owner: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
-    }, // Owner of the page
+const pageSchema = new Schema({
+  title: { type: String, required: true },
+  content: { type: String },
+  bookId: { type: Schema.Types.ObjectId, ref: "Book", required: false },
+  bookshelfId: {
+    type: Schema.Types.ObjectId,
+    ref: "Bookshelf",
+    required: false,
   },
-  { timestamps: true }
-);
+  createdOn: { type: Date, default: Date.now },
+});
 
 module.exports = mongoose.model("Page", pageSchema);

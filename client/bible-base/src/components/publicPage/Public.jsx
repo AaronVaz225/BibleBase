@@ -31,7 +31,7 @@ const Public = () => {
       </main>
       <footer className="mt-6 text-gray-600">
         <p>&copy; {new Date().getFullYear()} Bible Base</p>
-      </footer>
+      </footer>{" "}
     </section>
   );
 };

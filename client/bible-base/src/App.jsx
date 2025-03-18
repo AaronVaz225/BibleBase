@@ -6,6 +6,7 @@ import Welcome from "./features/auth/Welcome";
 import SignUp from "./features/auth/SignUp";
 import Login from "./features/auth/Login";
 import ProtectedRoute from "./features/auth/ProtectedRoute";
+import Bookshelf from "./components/Bookshelf/Bookshelf";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
       <Route element={<ProtectedRoute />}>
         <Route path="dashboard" element={<DashboardLayout />}>
           <Route index element={<Welcome />} />
+
+          {/* Bookshelves (Main Page) */}
+          <Route path="bookshelves" element={<Bookshelf />} />
         </Route>
       </Route>
     </Routes>
