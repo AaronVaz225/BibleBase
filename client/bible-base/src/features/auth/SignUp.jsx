@@ -1,21 +1,28 @@
-//Login Page
+//Sign Up Page
 import React from "react";
 
-import { Link, useNavigate } from "react-router-dom";
-import PasswordInput from "../../components/Input/PasswordInput";
 import { useState } from "react";
+import PasswordInput from "../../components/Input/PasswordInput";
+import { Link, useNavigate } from "react-router-dom";
 import { validateEmail } from "../../../utils/helper";
 import axiosInstance from "../../../utils/axiosInstance";
 
-const Login = () => {
+const SignUp = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
-    e.preventDefault(); //keeps form from refreshing
+  const handleSignUp = async (e) => {
+    e.preventDefault(); // prevents form from refreshing on submit
+
+    //checking input
+    if (!name) {
+      setError("Please enter your name");
+      return;
+    }
 
     if (!validateEmail(email)) {
       setError("Please enter a valid email address.");
@@ -23,20 +30,26 @@ const Login = () => {
     }
 
     if (!password) {
-      setError("Please enter your password");
+      setError("Please enter a password");
       return;
     }
 
-    setError(""); //setting error to nothing if everything is good
+    setError(""); //If everything checks out, set error to empty
 
-    //Login API Call
+    //Signup API Call
     try {
-      const response = await axiosInstance.post("/login", {
+      const response = await axiosInstance.post("/create-account", {
+        fullName: name,
         email: email,
         password: password,
       });
 
-      //Handle Successful Login Response
+      //Handle Successful Registration Response
+      if (response.data && response.data.error) {
+        setError(response.data.message);
+        return;
+      }
+
       if (response.data && response.data.accessToken) {
         localStorage.setItem("token", response.data.accessToken);
         navigate("/dashboard");
@@ -50,7 +63,7 @@ const Login = () => {
       ) {
         setError(error.response.data.message);
       } else {
-        setError("An unexpected error occurred. Please try again");
+        setError("An unexpected error occurred. Please try again.");
       }
     }
   };
@@ -59,8 +72,16 @@ const Login = () => {
     <>
       <div className="flex items-center justify-center mt-50">
         <div className="w-96 border rounded bg-white px-7 py-10">
-          <form onSubmit={handleLogin}>
-            <h4 className="text-2xl mb-7">Login</h4>
+          <form onSubmit={handleSignUp}>
+            <h4 className="text-2xl mb-7">Sign Up</h4>
+
+            <input
+              type="text"
+              placeholder="Name"
+              className="input-box"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
 
             <input
               type="text"
@@ -79,13 +100,13 @@ const Login = () => {
             {error && <p className="text-red-500 text-xs pb-1">{error}</p>}
 
             <button type="submit" className="btn-primary cursor-pointer">
-              Login
+              Create Account
             </button>
 
             <p className="text-sm text-center mt-4">
-              Not registered yet?{" "}
-              <Link to="/signUp" className="font-medium text-primary underline">
-                Create an Account
+              Already have an account?{" "}
+              <Link to="/login" className="font-medium text-primary underline">
+                Log In
               </Link>
             </p>
           </form>
@@ -95,4 +116,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

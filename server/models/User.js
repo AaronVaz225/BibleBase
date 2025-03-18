@@ -1,29 +1,12 @@
+//schema for users
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const userSchema = new mongoose.Schema(
-  {
-    username: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-    folders: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Bookshelf",
-      },
-    ], // References top-level folders owned by the user
-  },
-  { timestamps: true }
-);
+const userSchema = new Schema({
+  fullName: { type: String },
+  email: { type: String },
+  password: { type: String },
+  createdOn: { type: Date, default: new Date().getTime() },
+});
 
-module.exports = mongoose.model("User", userSchema); //apparently Mongoose pluralizes and lowercases the model name by default (so becomes users?)
+module.exports = mongoose.model("User", userSchema); //Like saying, "create a class User from userSchema and export it"
