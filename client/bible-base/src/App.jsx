@@ -1,4 +1,4 @@
-// App.jsx
+// src/App.jsx
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Public from "./components/publicPage/Public";
@@ -7,9 +7,13 @@ import Welcome from "./features/auth/Welcome";
 import SignUp from "./features/auth/SignUp";
 import Login from "./features/auth/Login";
 import ProtectedRoute from "./features/auth/ProtectedRoute";
-import Book from "./components/Book/Book"; // Bookshelf-level view: shows books and pages
-import BookView from "./components/Book/BookView"; // Book-level view: shows pages in a specific book
-import Page from "./components/Page/Page"; // WYSIWYG editor
+import Book from "./components/Book/Book";
+// Import the new BookView component:
+import BookView from "./components/Book/BookView";
+import Page from "./components/Page/Page";
+
+// NEW BIBLE COMPONENT
+import BibleView from "./components/Bible/BibleView";
 
 function App() {
   return (
@@ -26,14 +30,15 @@ function App() {
         <Route path="dashboard" element={<DashboardLayout />}>
           <Route index element={<Welcome />} />
 
-          {/* Bookshelves (Main Page) */}
+          {/* Library Routes */}
           <Route path="bookshelf/:bookshelfId" element={<Book />} />
-
-          {/* Book-level view (Inside a Bookshelf): Only pages for that book */}
+          {/* Change this route: */}
           <Route path="book/:bookId" element={<BookView />} />
-
-          {/* Page-level view: WYSIWYG editor */}
+          {/* Add this new route for individual pages: */}
           <Route path="page/:pageId" element={<Page />} />
+
+          {/* Bible Route */}
+          <Route path="bible" element={<BibleView />} />
         </Route>
       </Route>
     </Routes>

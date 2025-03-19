@@ -1,12 +1,13 @@
-//Layout for Protected routes
-import React from "react";
-import { Outlet } from "react-router-dom";
+// src/layout/DashboardLayout.jsx
+import React, { useState, useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import Navbar from "./NavBar/Navbar";
 import axiosInstance from "../../utils/axiosInstance";
-import { useState, useEffect } from "react";
+import SwitchTabs from "../components/SwitchTabs/SwitchTabs";
 
 const DashboardLayout = () => {
   const [userInfo, setUserInfo] = useState(null);
+  const navigate = useNavigate();
 
   //Get User Info
   const getUserInfo = async () => {
@@ -16,7 +17,7 @@ const DashboardLayout = () => {
         setUserInfo(response.data.user);
       }
     } catch (error) {
-      if (error.response.status === 401) {
+      if (error.response?.status === 401) {
         localStorage.clear();
         navigate("/login");
       }
@@ -25,13 +26,15 @@ const DashboardLayout = () => {
 
   useEffect(() => {
     getUserInfo();
-    //getAllNotes(); will have to be here to
-    return () => {}; //clean up function currently doing nothing
-  }, []); //I believe the [] makes it run every time the component is updated?
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-100">
       <Navbar userInfo={userInfo} />
+
+      {/* Our new Library / Bible switch */}
+      <SwitchTabs />
+
       <div className="p-6">
         <Outlet />
       </div>
