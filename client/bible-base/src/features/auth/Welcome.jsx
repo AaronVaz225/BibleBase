@@ -1,48 +1,42 @@
-//Welcome page after user signs in
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Navbar from "../../components/NavBar/Navbar";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../../utils/axiosInstance";
-import { useState } from "react";
-import { useEffect } from "react";
+import Bookshelf from "../../components/Bookshelf/Bookshelf";
+import AddButton from "../../components/AddButton/AddButton";
 
 const Welcome = () => {
-  const [userInfo, setUserInfo] = useState(null);
-
+  const [bookshelves, setBookshelves] = useState([]);
   const navigate = useNavigate();
 
-  //Get User Info
-  const getUserInfo = async () => {
+  // Callback function to fetch bookshelves
+  const getBookshelves = async () => {
     try {
-      const response = await axiosInstance.get("/get-user");
-      if (response.data && response.data.user) {
-        setUserInfo(response.data.user);
-      }
+      const response = await axiosInstance.get("/bookshelves");
+      setBookshelves(response.data);
     } catch (error) {
-      if (error.response.status === 401) {
-        localStorage.clear();
-        navigate("/login");
-      }
+      console.error("Error fetching bookshelves:", error);
     }
   };
-  const content = (
-    <section className="welcome ">
-      <Navbar userInfo={userInfo} />
-      <h1 className="font-bold text-purple-500">Library</h1>
-
-      <p>
-        <Link to="/dashboard/bookshelf">Bookshelf</Link>
-      </p>
-    </section>
-  );
 
   useEffect(() => {
-    getUserInfo();
-    //getAllNotes(); will have to be here to
-    return () => {}; //clean up function currently doing nothing
-  }, []); //I believe the [] makes it run every time the component is updated?
+    getBookshelves();
+  }, []);
 
-  return content;
+  return (
+    <section className="welcome p-6">
+      <h1 className="text-2xl font-bold text-purple-500 text-center mb-4">
+        Library
+      </h1>
+
+      {/* Pass the callback to Bookshelf */}
+      <Bookshelf
+        bookshelves={bookshelves}
+        refreshBookshelves={getBookshelves}
+      />
+
+      <AddButton />
+    </section>
+  );
 };
 
 export default Welcome;
