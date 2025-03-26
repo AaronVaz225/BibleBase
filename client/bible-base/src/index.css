@@ -5,6 +5,7 @@
 :root {
   --color-test: #000000;
 }
+
 /*Layer base is a tailwind property to define base layers*/
 @layer base {
   html {

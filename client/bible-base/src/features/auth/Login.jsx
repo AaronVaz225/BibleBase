@@ -57,7 +57,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="flex items-center justify-center mt-50">
+      <div className="flex items-center justify-center h-screen">
         <div className="w-96 border rounded bg-white px-7 py-10">
           <form onSubmit={handleLogin}>
             <h4 className="text-2xl mb-7">Login</h4>
@@ -78,9 +78,25 @@ const Login = () => {
             {/*Only renders if error has a value (short-Circuit Rendering aka conditional rendering)*/}
             {error && <p className="text-red-500 text-xs pb-1">{error}</p>}
 
-            <button type="submit" className="btn-primary cursor-pointer">
-              Login
+            <button
+              type="submit"
+              className="btn-primary cursor-pointer relative p-[3px]"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
+              <div className="px-8 py-2 pt-2 pb-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent text-xl">
+                Log In
+              </div>
             </button>
+
+            {/* 
+                        <button className="p-[3px] relative">
+                        <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
+                        <div className="px-8 py-2 pt-4 pb-4  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent text-3xl">
+                          Get Started
+                        </div>
+                      </button>
+                        
+                        */}
 
             <p className="text-sm text-center mt-4">
               Not registered yet?{" "}
