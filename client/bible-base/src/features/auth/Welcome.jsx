@@ -24,7 +24,7 @@ const Welcome = () => {
 
   return (
     <section className="welcome p-6">
-      <h1 className="text-2xl font-bold text-purple-500 text-center mb-4">
+      <h1 className="text-4xl font-bold text-purple-900 text-center mb-4 font-[Orbitron]">
         Library
       </h1>
 

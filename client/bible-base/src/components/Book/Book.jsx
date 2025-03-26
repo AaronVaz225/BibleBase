@@ -2,9 +2,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axiosInstance from "../../../utils/axiosInstance";
-import { FaFolder, FaFileAlt, FaTrash } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import AddButton from "../AddButton/AddButton";
-import BackButton from "../BackButton/BackButton"; // Import BackButton
+import BackButton from "../BackButton/BackButton";
+import BookIcon from "./Book.png";
+import PageIcon from "./page.png";
 
 const Book = () => {
   const { bookshelfId } = useParams();
@@ -52,24 +54,28 @@ const Book = () => {
       {/* Back Button */}
       <BackButton />
 
-      <h2 className="text-2xl font-bold text-center">Books & Pages</h2>
+      <h2 className="text-2xl font-[Orbitron] text-purple-900 font-bold text-center">
+        Books & Pages
+      </h2>
 
       {/* Books Section */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6 md:mx-10 lg:mx-20 xl:mx-60">
         {books.length > 0 ? (
           books.map((book) => (
             <div
               key={book._id}
-              className="relative flex flex-col items-center cursor-pointer p-4 border rounded-lg shadow-md hover:shadow-lg transition bg-white"
+              className="relative flex flex-col items-center cursor-pointer p-4 rounded-xl border-b-3 shadow-md hover:shadow-lg transition bg-gradient-to-r from-fuchsia-50 to-sky-50"
               onClick={() => navigate(`/dashboard/book/${book._id}`)}
             >
-              <FaFolder className="text-6xl text-blue-500" />
+              <img src={BookIcon} className="w-20 h-20" />
+
               <span className="mt-2 text-lg font-semibold">{book.name}</span>
               <button
                 onClick={(e) => handleDeleteBook(book._id, e)}
-                className="absolute top-1 right-1 text-red-500 hover:text-red-700"
+                className="absolute top-1 right-1 tooltip "
+                data-tip="Delete"
               >
-                <FaTrash />
+                <FaTrash className="btn px-1 py-2 text-red-800 hover:text-red-400" />
               </button>
             </div>
           ))
@@ -79,21 +85,23 @@ const Book = () => {
       </div>
 
       {/* Pages Section */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6 md:mx-10 lg:mx-20 xl:mx-60">
         {pages.length > 0 ? (
           pages.map((page) => (
             <div
               key={page._id}
-              className="relative flex flex-col items-center cursor-pointer p-4 border rounded-lg shadow-md hover:shadow-lg transition bg-white"
+              className="relative flex flex-col items-center cursor-pointer p-4 rounded-xl border-b-3 shadow-md hover:shadow-lg transition bg-gradient-to-r from-fuchsia-50 to-sky-50"
               onClick={() => navigate(`/dashboard/page/${page._id}`)}
             >
-              <FaFileAlt className="text-6xl text-gray-500" />
+              <img src={PageIcon} className="w-20 h-20" />
+
               <span className="mt-2 text-lg font-semibold">{page.title}</span>
               <button
                 onClick={(e) => handleDeletePage(page._id, e)}
-                className="absolute top-1 right-1 text-red-500 hover:text-red-700"
+                className="absolute top-1 right-1 tooltip"
+                data-tip="Delete"
               >
-                <FaTrash />
+                <FaTrash className="btn px-1 py-2 text-red-800 hover:text-red-400" />
               </button>
             </div>
           ))

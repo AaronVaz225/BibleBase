@@ -1,7 +1,7 @@
 // Public facing page
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "../../../public/BibleBase.png";
+import Logo from "../../../public/BibleBaseNoBg.png";
 import { TypeAnimation } from "react-type-animation";
 import LibraryPicture from "../../../public/library.webp";
 import Earth from "../../../public/earth.webp";
@@ -17,7 +17,7 @@ const Public = () => {
           <img src={Logo} className="pr-4 max-w-15 min-w-15" />
         </div>
         <div className="flex">
-          <h2 className=" flex-1 font-bold text-4xl text-[#260038] font-mono ">
+          <h2 className=" flex-1 font-bold text-4xl text-[#260038] font-[Orbitron] ">
             BibleBase
           </h2>
         </div>

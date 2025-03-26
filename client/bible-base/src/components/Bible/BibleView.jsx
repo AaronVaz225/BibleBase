@@ -144,7 +144,7 @@ const BibleView = () => {
           onClick={() => setShowEntireChapter(true)}
           className={`px-4 py-2 rounded-l ${
             showEntireChapter
-              ? "bg-blue-500 text-white"
+              ? "bg-gradient-to-r from-fuchsia-900 to-blue-900 text-white"
               : "bg-gray-200 text-gray-700"
           } hover:bg-gray-300 transition`}
         >
@@ -154,7 +154,7 @@ const BibleView = () => {
           onClick={() => setShowEntireChapter(false)}
           className={`px-4 py-2 rounded-r ${
             !showEntireChapter
-              ? "bg-blue-500 text-white"
+              ? "bg-gradient-to-r from-blue-900 to-fuchsia-900 text-white"
               : "bg-gray-200 text-gray-700"
           } hover:bg-gray-300 transition`}
         >

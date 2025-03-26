@@ -1,7 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FaFolder, FaTrash } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import axiosInstance from "../../../utils/axiosInstance";
+
+import Icon from "./Bookshelf.png";
 
 const Bookshelf = ({ bookshelves, refreshBookshelves }) => {
   const navigate = useNavigate();
@@ -19,21 +21,25 @@ const Bookshelf = ({ bookshelves, refreshBookshelves }) => {
   };
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4 mx-5 md:mx-10 lg:mx-20 xl:mx-60 ">
       {bookshelves.length > 0 ? (
         bookshelves.map((shelf) => (
           <div
             key={shelf._id}
-            className="relative flex flex-col items-center cursor-pointer p-4 border rounded-lg shadow-md hover:shadow-lg transition bg-white"
+            className="relative flex flex-col items-center cursor-pointer p-4 border-b-3 rounded-xl transition bg-gradient-to-r from-fuchsia-50 to-sky-50 shadow-md hover:shadow-lg "
             onClick={() => navigate(`/dashboard/bookshelf/${shelf._id}`)}
           >
-            <FaFolder className="text-6xl text-yellow-500" />
-            <span className="mt-2 text-lg font-semibold">{shelf.name}</span>
+            <img src={Icon} className=" w-20 h-20" />
+
+            <span className="mt-2 text-lg font-mono font-extrabold ">
+              {shelf.name}
+            </span>
             <button
               onClick={(e) => handleDelete(shelf._id, e)}
-              className="absolute top-1 right-1 text-red-500 hover:text-red-700"
+              className="absolute top-1 right-1 tooltip"
+              data-tip="Delete"
             >
-              <FaTrash />
+              <FaTrash className="btn px-1 py-2 text-red-800 hover:text-red-400" />
             </button>
           </div>
         ))

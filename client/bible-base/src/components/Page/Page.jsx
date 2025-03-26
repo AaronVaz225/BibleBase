@@ -39,7 +39,11 @@ const Page = () => {
       <BackButton />
 
       <h2 className="text-2xl font-bold text-center mb-4">{title}</h2>
-      <ReactQuill value={content} onChange={setContent} />
+      <ReactQuill
+        value={content}
+        onChange={setContent}
+        className="bg-white text-3xl"
+      />
       <div className="flex justify-center gap-4 mt-4">
         <button
           onClick={handleSave}

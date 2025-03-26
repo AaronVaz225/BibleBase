@@ -29,10 +29,10 @@ const DashboardLayout = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-[#f3f2f1]">
       <Navbar userInfo={userInfo} />
 
-      {/* Our new Library / Bible switch */}
+      {/* Library / Bible switch */}
       <SwitchTabs />
 
       <div className="p-6">
