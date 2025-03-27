@@ -48,7 +48,7 @@ const BookView = () => {
           pages.map((page) => (
             <div
               key={page._id}
-              className="relative flex flex-col items-center cursor-pointer p-4 border-b-3 rounded-xl shadow-md hover:shadow-lg transition bg-gradient-to-r from-fuchsia-50 to-sky-50"
+              className="relative flex flex-col items-center cursor-pointer p-4 border-3 border-b-6 rounded-xl shadow-md hover:shadow-lg bg-gradient-to-r from-fuchsia-50 to-sky-50 transition-all hover:border-r-6 hover:border-l-6"
               onClick={() => navigate(`/dashboard/page/${page._id}`)}
             >
               <img src={PageIcon} className="w-20 h-20" />

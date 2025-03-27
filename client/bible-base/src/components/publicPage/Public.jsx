@@ -26,13 +26,13 @@ const Public = () => {
           <div className="flex justify-end mr-3 ">
             <Link
               to="/login"
-              className="px-1 py-2 text-xs  bg-black rounded-[6px]  relative group  text-white hover:bg-purple-900  transition duration-200 font-display mr-3 md:px-8 md:text-base "
+              className="px-1 py-2 text-xs  bg-black rounded-[6px] relative group  text-white hover:bg-gradient-to-r from-fuchsia-900 to-blue-900 transition duration-200 font-mono mr-3 md:px-8 md:text-base "
             >
               Login
             </Link>
             <Link
               to="/signup"
-              className="px-1 py-2 text-xs bg-black rounded-[6px]  relative group  text-white hover:bg-purple-900  transition duration-200 font-display md:px-8 md:text-base "
+              className="px-1 py-2 text-xs bg-black rounded-[6px] relative group  text-white hover:bg-gradient-to-r from-fuchsia-900 to-blue-900  transition duration-200 font-mono md:px-8 md:text-base "
             >
               Sign Up
             </Link>
@@ -72,7 +72,7 @@ const Public = () => {
         <Link to="/signup" className="mt-20">
           <button className="p-[3px] relative">
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
-            <div className="px-8 py-2 pt-4 pb-4  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent text-3xl">
+            <div className="px-8 py-2 pt-4 pb-4 font-mono bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent text-3xl">
               Get Started
             </div>
           </button>

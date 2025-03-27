@@ -69,12 +69,14 @@ const BibleView = () => {
 
   return (
     <div className="p-6 bg-white rounded shadow">
-      <h1 className="text-2xl font-bold mb-4">Bible</h1>
+      <h1 className="text-2xl font-bold mb-4 font-[Orbitron]">Bible</h1>
 
       {/* Dropdowns for Version, Book, Chapter, and Verse */}
       <div className="flex flex-wrap items-end gap-4 mb-4">
         <div>
-          <label className="block text-gray-700 font-semibold">Version</label>
+          <label className="block text-gray-700 font-mono font-extrabold">
+            Version
+          </label>
           <select
             value={version}
             onChange={(e) => setVersion(e.target.value)}
@@ -86,7 +88,9 @@ const BibleView = () => {
         </div>
 
         <div>
-          <label className="block text-gray-700 font-semibold">Book</label>
+          <label className="block text-gray-700 font-mono font-extrabold">
+            Book
+          </label>
           <select
             value={selectedBook}
             onChange={(e) => setSelectedBook(e.target.value)}
@@ -101,7 +105,9 @@ const BibleView = () => {
         </div>
 
         <div>
-          <label className="block text-gray-700 font-semibold">Chapter</label>
+          <label className="block text-gray-700 font-mono font-extrabold">
+            Chapter
+          </label>
           <select
             value={chapter}
             onChange={(e) => setChapter(e.target.value)}
@@ -116,7 +122,9 @@ const BibleView = () => {
         </div>
 
         <div>
-          <label className="block text-gray-700 font-semibold">Verse</label>
+          <label className="block text-gray-700 font-mono font-extrabold ">
+            Verse
+          </label>
           <select
             value={selectedVerse}
             onChange={(e) => setSelectedVerse(e.target.value)}
@@ -132,7 +140,7 @@ const BibleView = () => {
 
         <button
           onClick={fetchChapter}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+          className="bg-violet-900 text-white px-4 py-2 rounded hover:bg-violet-500 transition font-mono cursor-pointer"
         >
           Load
         </button>
@@ -146,7 +154,7 @@ const BibleView = () => {
             showEntireChapter
               ? "bg-gradient-to-r from-fuchsia-900 to-blue-900 text-white"
               : "bg-gray-200 text-gray-700"
-          } hover:bg-gray-300 transition`}
+          } hover:bg-gray-300 transition font-mono`}
         >
           Entire Chapter
         </button>
@@ -156,7 +164,7 @@ const BibleView = () => {
             !showEntireChapter
               ? "bg-gradient-to-r from-blue-900 to-fuchsia-900 text-white"
               : "bg-gray-200 text-gray-700"
-          } hover:bg-gray-300 transition`}
+          } hover:bg-gray-300 transition font-mono`}
         >
           Verse Only
         </button>

@@ -38,7 +38,9 @@ const Page = () => {
       {/* Back Button */}
       <BackButton />
 
-      <h2 className="text-2xl font-bold text-center mb-4">{title}</h2>
+      <h2 className="text-2xl font-bold text-center mb-4 text-purple-900 font-[Orbitron]">
+        {title}
+      </h2>
       <ReactQuill
         value={content}
         onChange={setContent}

@@ -26,10 +26,10 @@ const Bookshelf = ({ bookshelves, refreshBookshelves }) => {
         bookshelves.map((shelf) => (
           <div
             key={shelf._id}
-            className="relative flex flex-col items-center cursor-pointer p-4 border-b-3 rounded-xl transition bg-gradient-to-r from-fuchsia-50 to-sky-50 shadow-md hover:shadow-lg "
+            className="relative flex flex-col items-center cursor-pointer p-4 border-3 border-b-6 rounded-xl bg-gradient-to-r from-fuchsia-50 to-sky-50 transition-all hover:border-r-6 hover:border-l-6"
             onClick={() => navigate(`/dashboard/bookshelf/${shelf._id}`)}
           >
-            <img src={Icon} className=" w-20 h-20" />
+            <img src={Icon} className=" w-20 h-20 " />
 
             <span className="mt-2 text-lg font-mono font-extrabold ">
               {shelf.name}

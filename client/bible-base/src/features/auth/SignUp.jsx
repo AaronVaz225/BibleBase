@@ -72,7 +72,7 @@ const SignUp = () => {
   return (
     <>
       <div className="flex items-center justify-center h-screen">
-        <div className="w-96 border rounded px-7 py-10 bg-gradient-to-r from-violet-50 to-purple-50">
+        <div className="w-96 border border-b-8 border-r-5 rounded px-7 py-10 bg-gradient-to-r from-violet-50 to-purple-50">
           <form onSubmit={handleSignUp}>
             <img src={Logo} className="w-15 h-15 mx-auto " />
             <h4 className="text-2xl mb-7 font-mono">Sign Up</h4>
