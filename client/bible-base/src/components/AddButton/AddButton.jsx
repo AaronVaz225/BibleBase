@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axiosInstance from "../../../utils/axiosInstance";
+import { IoAdd } from "react-icons/io5";
 
 const AddButton = () => {
   const location = useLocation();
@@ -56,18 +57,18 @@ const AddButton = () => {
   };
 
   return (
-    <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2">
+    <div className="fixed bottom-12 inset-x-0 flex justify-center font-mono">
       {/* Add Button */}
       <button
         onClick={() => setShowOptions(!showOptions)}
-        className="bg-purple-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-purple-700 transition"
+        className="bg-purple-900/75 text-white px-8 py-5 rounded-full shadow-lg hover:bg-gradient-to-r from-fuchsia-900 to-blue-900 transition"
       >
-        +
+        <IoAdd className="w-5 h-10 " />
       </button>
 
       {/* Dropdown Options */}
       {showOptions && !creating && (
-        <div className="absolute bottom-14 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-lg p-2">
+        <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-lg p-2">
           {addOptions.map((option, index) => (
             <button
               key={index}
@@ -82,7 +83,7 @@ const AddButton = () => {
 
       {/* Input Form */}
       {creating && (
-        <div className="absolute bottom-14 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-lg p-4 flex flex-col items-center">
+        <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-lg p-4 flex flex-col items-center">
           <input
             type="text"
             placeholder={`Enter ${creating} name`}
@@ -93,7 +94,7 @@ const AddButton = () => {
           <div className="flex gap-2">
             <button
               onClick={handleCreate}
-              className="bg-green-500 text-white px-4 py-2 rounded-md shadow hover:bg-green-700 transition"
+              className="bg-green-700 text-white px-4 py-2 rounded-md shadow hover:bg-green-900 transition "
             >
               Create
             </button>
@@ -102,7 +103,7 @@ const AddButton = () => {
                 setCreating(null);
                 setInputValue("");
               }}
-              className="bg-red-500 text-white px-4 py-2 rounded-md shadow hover:bg-red-700 transition"
+              className="bg-red-700 text-white px-4 py-2 rounded-md shadow hover:bg-red-900 transition "
             >
               Cancel
             </button>

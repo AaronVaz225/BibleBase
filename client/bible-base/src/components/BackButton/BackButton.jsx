@@ -10,7 +10,7 @@ const BackButton = () => {
   return (
     <button
       onClick={() => navigate(-1)}
-      className="flex items-center p-2 text-gray-600 hover:text-gray-800 font-mono text-md"
+      className="flex cursor-pointer items-center p-2 text-gray-600 hover:text-gray-800 font-mono text-md"
     >
       <IoArrowBackCircle className="mr-2 w-7 h-7" />
       Back

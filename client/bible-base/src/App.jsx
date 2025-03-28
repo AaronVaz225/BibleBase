@@ -1,4 +1,3 @@
-// src/App.jsx
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Public from "./components/publicPage/Public";
@@ -8,11 +7,11 @@ import SignUp from "./features/auth/SignUp";
 import Login from "./features/auth/Login";
 import ProtectedRoute from "./features/auth/ProtectedRoute";
 import Book from "./components/Book/Book";
-// Import the new BookView component:
+//  BookView component:
 import BookView from "./components/Book/BookView";
 import Page from "./components/Page/Page";
 
-// NEW BIBLE COMPONENT
+// BIBLE COMPONENT
 import BibleView from "./components/Bible/BibleView";
 
 function App() {

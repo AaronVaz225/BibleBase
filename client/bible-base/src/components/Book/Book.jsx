@@ -80,7 +80,9 @@ const Book = () => {
             </div>
           ))
         ) : (
-          <p className="text-gray-500 text-center mt-4">No books found.</p>
+          <p className="text-gray-500 text-center mt-4">
+            Press "+" to add a book
+          </p>
         )}
       </div>
 
@@ -106,7 +108,9 @@ const Book = () => {
             </div>
           ))
         ) : (
-          <p className="text-gray-500 text-center mt-4">No pages found.</p>
+          <p className="text-gray-500 text-center mt-4">
+            Press "+" to add a page
+          </p>
         )}
       </div>
 

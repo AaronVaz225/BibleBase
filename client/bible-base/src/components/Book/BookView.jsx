@@ -64,9 +64,7 @@ const BookView = () => {
             </div>
           ))
         ) : (
-          <p className="text-gray-500 text-center">
-            No pages found in this book.
-          </p>
+          <p className="text-gray-500 text-center">Press "+" to add a page</p>
         )}
       </div>
       <AddButton />

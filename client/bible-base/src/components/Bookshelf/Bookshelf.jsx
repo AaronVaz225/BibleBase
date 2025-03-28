@@ -26,7 +26,7 @@ const Bookshelf = ({ bookshelves, refreshBookshelves }) => {
         bookshelves.map((shelf) => (
           <div
             key={shelf._id}
-            className="relative flex flex-col items-center cursor-pointer p-4 border-3 border-b-6 rounded-xl bg-gradient-to-r from-fuchsia-50 to-sky-50 transition-all hover:border-r-6 hover:border-l-6"
+            className="relative flex flex-col items-center cursor-pointer p-4 border-3 border-b-6 rounded-xl bg-gradient-to-r from-fuchsia-50 to-sky-50 transition-all hover:border-r-6 hover:border-l-6 "
             onClick={() => navigate(`/dashboard/bookshelf/${shelf._id}`)}
           >
             <img src={Icon} className=" w-20 h-20 " />
@@ -45,7 +45,7 @@ const Bookshelf = ({ bookshelves, refreshBookshelves }) => {
         ))
       ) : (
         <p className="text-gray-500 text-center col-span-full">
-          No bookshelves found
+          Press the "+" button to get started.
         </p>
       )}
     </div>
