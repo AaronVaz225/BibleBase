@@ -15,6 +15,4 @@ BibleBase is a MERN stack web application for taking, organizing, and accessing 
 - **Auth:** JSON Web Tokens (JWT)
 
 ## Screenshots
-**_Add screenshot here of home page_**  
-**_Add screenshot here of a note with a highlighted verse_**  
-**_Add screenshot here of the sign-in page_**
+**Coming Soon...
