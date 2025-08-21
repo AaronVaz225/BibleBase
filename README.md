@@ -1,6 +1,6 @@
 # BibleBase
 
-BibleBase is a MERN stack web application for taking, organizing, and accessing Bible study notes anywhere. Features include JWT authentication, Google sign-in, verse highlighting, and image attachments in notes.  
+BibleBase is a MERN stack web application for taking, organizing, and accessing Bible study notes anywhere. Features include JWT authentication and markdown style notes.  
 
 ## Features
 - 📖 Bible API for quick scripture access  
