@@ -9,7 +9,7 @@ BibleBase is a MERN stack web application for taking, organizing, and accessing 
 - 📂 Organized notes with clickable verse navigation  
 
 ## Tech Stack
-- **Frontend:** React, JavaScript, HTML, CSS
+- **Frontend:** React, JavaScript, HTML, CSS (Tailwind)
 - **Backend:** Node.js, Express.js  
 - **Database:** MongoDB Atlas  
 - **Auth:** JSON Web Tokens (JWT)
